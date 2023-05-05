@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<% function formatDate(date) { %>
+    <%= new Date(date).toLocaleDateString() %>
+        <% } %>
+
+            <%- include('partials/head') %>
+
+                <body>
+                    <%- include('partials/header') %>
+                        <% if (data[0]) { %>
+                            <main class="DashBoard">
+                                <div class="information">
+                                    <h2>Hello, <%= data[0].full_name %>
+                                    </h2>
+                                    <h4>You will be staying in <%= data[0].name %>
+                                    </h4>
+
+                                    <p>Your cost per night is <strong>
+                                            <%= data[0].price %>
+                                        </strong></p>
+                                    <p>Your roomnumber is <%= data[0].roomnumber %>
+                                            <p>You can check in from <%= formatDate(data[0].date_of_check_in) %> and you
+                                                    will
+                                                    have to leave on <%= formatDate(data[0].date_of_check_out) %>
+                                            </p>
+                                    </p>
+
+                                    <p>
+                                        You can contact your hotel at
+                                        <%= data[0].phonenumber %>
+
+                                    </p>
+
+                                </div>
+                                <div class="imgcontainer">
+                                    <img src="https://source.unsplash.com/random/?<%=data[0].city %>,night/"
+                                        alt="randomly generated image of <%=data[0].city %> at night">
+                                </div>
+
+                            </main>
+                            <p>Cancel your reservation:</p>
+                            <button class="cancelbtn opendialog" data-id="<%= data[0].id %>">Cancel</button>
+                            <dialog>
+                                <p>Are you sure you want to cancel your reservation?</p>
+                                <p>This action cannot be undone. And you will not be refunded.</p>
+                                <div class="buttons">
+                                    <button class="cancelbtn cancel" data-id="<%= data[0].id %>">Confirm</button>
+                                    <button class="cancelmodal">Cancel</button>
+                                </div>
+                            </dialog>
+                            <% } else { %>
+                                <main class="DashBoard">
+                                    <h3>You have canceled your reservation</h3>
+                                    <p>If you didn't cancel your reservation, please contact us.</p>
+                                </main>
+                                <% } %>
+
+
+                                    <footer>
+                                        <p>© 2023 Booking Website. All rights reserved.</p>
+                                    </footer>
+                                    <% if (data[0]) { %>
+                                        <script>
+                                            const cancelBtn = document.querySelector('.cancel');
+                                            cancelBtn.addEventListener('click', () => {
+                                                const id = cancelBtn.dataset.id;
+                                                fetch(`/booking/${id}`, {
+                                                    method: 'DELETE'
+                                                }).then(() => {
+                                                    location.reload();
+                                                })
+                                                    .catch(err => console.log(err));
+                                            });
+                                            const dialog = document.querySelector('dialog');
+                                            const cancel = document.querySelector('.cancelmodal');
+                                            cancel.addEventListener('click', () => {
+                                                dialog.close();
+                                            });
+                                            const opendialog = document.querySelector('.opendialog');
+                                            opendialog.addEventListener('click', () => {
+                                                dialog.showModal();
+                                            });
+
+                                        </script>
+                                        <% } %>
+                </body>
+
+</html>

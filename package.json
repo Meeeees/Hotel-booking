@@ -1,0 +1,21 @@
+{
+  "name": "new-node-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express-session": "^1.17.3",
+    "generate-password": "^1.7.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.4",
+    "nodemailer": "^6.9.1"
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body>
+        <%- include('partials/header') %>
+            <main class="booking-form">
+                <h1 class="booking-form__title">Onyx Hotel Booking</h1>
+                <p class="booking-form__subtitle">Please fill in the following information to complete your reservation:
+                </p>
+
+                <form class="booking-form__form" action="/book" method="post">
+                    <div class="booking-form__form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" class="booking-form__form-control" required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" class="booking-form__form-control" required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="booking-form__form-control"
+                            required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="booking-form__form-control" required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" class="booking-form__form-control" required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" class="booking-form__form-control" required>
+                            <option value="">--Please select your gender--</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="checkInDate">Check-in Date:</label>
+                        <input type="date" id="checkInDate" name="checkInDate" class="booking-form__form-control"
+                            required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="checkOutDate">Check-out Date:</label>
+                        <input type="date" id="checkOutDate" name="checkOutDate" class="booking-form__form-control"
+                            required>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="destination">Destination:</label>
+                        <select id="destination" name="destination" class="booking-form__form-control" required>
+                            <option value="">--Please select your destination--</option>
+                            <optgroup label="France">
+                                <% for (const hotel in hotelsFrance) { %>
+                                    <option value="<%= hotelsFrance[hotel].id %>">
+                                        <%= hotelsFrance[hotel].city %>
+                                    </option>
+                                    <% } %>
+                            </optgroup>
+                            <optgroup label="Germany">
+                                <% for (const hotel in hotelsGermany) { %>
+                                    <option value="<%= hotelsGermany[hotel].id %>">
+                                        <%= hotelsGermany[hotel].city %>
+                                    </option>
+                                    <% } %>
+                            </optgroup>
+                            <optgroup label="South Africa">
+                                <% for (const hotel in hotelsSouthAfrica) { %>
+                                    <option value="<%= hotelsSouthAfrica[hotel].id %>">
+                                        <%= hotelsSouthAfrica[hotel].city %>
+                                    </option>
+                                    <% } %>
+                            </optgroup>
+                            <optgroup label="Canada">
+                                <% for (const hotel in hotelsCanada) { %>
+                                    <option value="<%= hotelsCanada[hotel].id %>">
+                                        <%= hotelsCanada[hotel].city %>
+                                    </option>
+                                    <% } %>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="booking-form__form-group">
+                        <label for="roomType">Room Type:</label>
+                        <select id="roomType" name="roomType" class="booking-form__form-control" required>
+                            <option value="">--Please select your room type--</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Suite">Suite</option>
+                            <option value="Family">Family</option>
+                        </select>
+
+                        <button type="submit">Book Now</button>
+                </form>
+            </main>
+
+            <footer>
+                <p>© 2023 Booking Website. All rights reserved.</p>
+            </footer>
+
+            <!-- <script src="main.js"></script> -->
+    </body>
+
+</html>
