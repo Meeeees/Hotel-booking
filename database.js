@@ -12,10 +12,10 @@ var transporter = nodemailer.createTransport({
 })
 
 pool = mysql.createPool({
-    host: 'localhost',
-    user: 'dijkie',
-    password: '7gYjFVGGuA!87',
-    database: 'hotelbooking'
+    host: 'sql7.freemysqlhosting.net',
+    user: 'sql7618070',
+    password: 'DsIKRrCzE8',
+    database: 'sql7618070'
 }).promise();
 
 
