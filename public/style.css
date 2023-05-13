@@ -706,3 +706,23 @@ nav ul li a[href="/login"] {
     display: flex;
     justify-content: space-evenly;
 }
+
+.notfound img {
+    width: 600px;
+}
+
+.notfound {
+    display: flex;
+    justify-content: end;
+}
+
+.notfound p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.notfound .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -67,7 +67,7 @@ async function Booking(body) {
         <p>Thank you for booking with us! We are looking forward to seeing you at Onyx Hotels</p>
 
        <p>Please login to your account with your email and password (see below) to view your booking details.</p>
-        <a href="http://localhost:3000/login">Login</a>
+        <a href="https://hotel-booking-production.up.railway.app/login">Login</a>
         <p>Your password: <strong>${password}</strong></p>
 
         `

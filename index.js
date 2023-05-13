@@ -21,4 +21,11 @@ app.use((req, res, next) => {
 
 app.use('/', FrontendRoutes, BackendRoutes);
 
-app.listen(port, () => console.log(`https://localhost:${port}`)) 
+// page not found
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: 'Page not found',
+    })
+})
+
+app.listen(port, () => console.log(`https://hotel-booking-production.up.railway.app`)) 
